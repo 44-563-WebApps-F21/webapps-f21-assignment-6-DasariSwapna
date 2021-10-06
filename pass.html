@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Playing with Javascript</title>
+  </head>
+
+  <body>
+    <h1>Pass phrase by Swapna Dasari</h1>
+
+  
+
+    <form>
+      <label style="font-size: 20px" for="pwd">Enter the secret phrase</label>
+      <input
+        type="password"
+        id="pwd"
+        value="Let me in"
+        name="pwd"
+        minlength="8"
+      /><br /><br />
+
+      <label style="font-size: 20px" for="phrase">Enter a phrase</label>
+      <input
+        style="margin-left: 45px"
+        type="text"
+        id="phrase"
+        name="phrase"
+      /><br />
+      <br /><br />
+      <input type="button" onclick="processPhrase()" value="Check the phrase" />
+    </form>
+
+    <div style="display: flex">
+     
+      <p id="result" >This text will be replaced </p>
+    </div>
+    <script>
+      let correct = 0;
+      let wrong = 0;
+     
+      function processPhrase() {
+        console.log("Getting password and guess values");
+        passwordValue = document.getElementById("pwd").value;
+        phraseValue = document.getElementById("phrase").value;
+        out = document.getElementById("result")
+       
+        if (passwordValue == phraseValue) {
+          alert("Access allowed");
+          correct = correct + 1;
+          out.innerHTML = "correct: " +correct + "   "+"wrong: "+ wrong
+        } else {
+          alert("Access denied");
+          wrong = wrong + 1;
+          console.log("wrong", wrong);
+          out.innerHTML = "wrong: "+wrong + "  "+ "correct: " +correct
+if(wrong >= 3){
+  alert("account locked");
+}
+
+        }
+       
+      }
+   
+    </script>
+
+<div id="container">
+  <img  onclick="newImage()" 
+  src="indian_elephant.jpeg" alt="your_keyword" width="200" height="200" id="getImage"  />
+<div>
+
+<script>
+  let usingImage=1
+  var Image_Id = document.getElementById('getImage');
+  function  newImage(pic){
+    console.log(usingImage)
+   
+  switch (usingImage) {
+  case 1:
+  usingImage=2;
+  Image_Id.src='puppy.jpeg';
+   break;
+   case 2:
+   usingImage=3;
+   Image_Id.src='RaggleRat.jpeg';
+   break;
+   case 3:
+   usingImage=1;
+   Image_Id.src='indian_elephant.jpeg';
+   break;
+   default:
+   alert("No imge was loaded");
+} 
+}
+</script>
+  </body>
+</html>

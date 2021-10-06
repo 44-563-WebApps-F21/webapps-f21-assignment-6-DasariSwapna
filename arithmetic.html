@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Playing with arithmetic  operations
+        </title>
+    </head>
+<body>
+
+<h1>
+    Swapna Dasari Computes: 
+</h1>
+<form>
+    <label style="font-size: 20px" for="pwd">Enter a base </label>   <input style="margin-left: 90px" type="text" id="base" name="base" inputmode="numeric" /><br /><br />
+    <label style="font-size: 20px" for="phrase">Enter an exponent</label>  <input style="margin-left: 45px" type="text" id="exponent" name="exponent" inputmode="numeric" /><br /> <br /><br />
+    <input type="button" onclick="power()" value="Compute" />
+  </form>
+  <div style="display: flex">  <p id="result1">This text will be replaced </p> </div>
+  <script>
+    let i = 1;
+    let powervalue = 0;
+    let totalvalue = [];
+    function power() {
+      baseValue = document.getElementById("base").value;exponentValue = document.getElementById("exponent").value;
+      out = document.getElementById("result1")
+      for (i = 1; i <= exponentValue; i++) {
+        powervalue = baseValue ** i
+        totalvalue.push(powervalue)
+      }
+      out.innerHTML = " The Powers of " + baseValue + "  are :" + totalvalue.toString()
+    }
+  </script>
+  <form>  
+    <input type="radio" id="addition" name="processRadioButton" value="addition" onclick=processRadio(this.value)>  <label for="addition">+</label><br>
+      <input type="radio" id="subtraction" name="processRadioButton" value="subtraction"  onclick=processRadio(this.value)>  <label for="subtraction">-</label><br>
+      <input type="radio" id="multiplication" name="processRadioButton" value="multiplication"  onclick=processRadio(this.value)>  <label for="multiplication">*</label><br>
+      <input type="radio" id="division" name="processRadioButton" value="division" onclick=processRadio(this.value)>  <label for="division">/</label> <br>
+  </form>
+  <div style="display: flex">   <p id="result2">This text will be replaced </p> </div>
+  <script>
+    function processRadio(type) {
+      baseValue = document.getElementById("base").value;  exponentValue = document.getElementById("exponent").value; out = document.getElementById("result2")
+      if (type == "addition") {
+        out.innerHTML = (Number(baseValue) + Number(exponentValue)).toString();
+      }
+      else if (type == "subtraction") {
+        out.innerHTML = (Number(baseValue) - Number(exponentValue)).toString();
+      }
+      else if (type == "multiplication") {
+        out.innerHTML = (Number(baseValue) * Number(exponentValue)).toString();
+      }
+      else {
+        out.innerHTML = (Number(baseValue) / Number(exponentValue)).toString();
+      }
+    }
+  </script>
+
+
+
+
+
+
+</body>
+</html> 
